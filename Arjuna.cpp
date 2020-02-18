@@ -216,7 +216,7 @@ bool Graph::sp_helper(int pos, int dest, std::vector<bool> &visited, std::vector
     {
         int front = *queue.begin();
         queue.erase(queue.begin());
-        std::cout << "front=" << front << std::endl;
+        //std::cout << "front=" << front << std::endl;
         for (int i = 0; i < G[front].size(); i++)
         {
             if (visited[G[front][i]] == false)

@@ -1,0 +1,30 @@
+In a school, Sri Krishna Shishu Mandir, during Janmaastami, a haandi (pot) breaking competition
+was organized for kids to break the pots and win chocolates. For the competitions, N pots are
+hanged in row (imagine as an array pots[]). So, the first pot is at pots[0] and last pot in the row
+would be pots[N-1]. pots[i] is labelled with number indicating its worth.
+
+The rule of the competition is as follows:
+
+ Every time a pots[i] is broken then the kid will chocolates equal to products of worth of
+pots[i-1] * pots[i] * pots[i+1].
+
+ After a pots[i] is broken, it is removed and the total number of pots is reduced by one
+and pots[i-1] and pots[i+1] become adjacent pots.
+
+Now, Shyamlal likes chocolates very much so he wants to earn more chocolates in the
+competition. Given the number of pots and their worth, find out the maximum number of
+chocolates that Shyamlal can win by breaking the pots more intelligently.
+
+Note:
+You may imagine pots[-1] = pots[n] = 1. They are not real therefore you can not break them.
+
+
+Example:
+
+Input: 4
+3 1 5 8
+Output: 167 
+Explanation: pots = [3,1,5,8] --> [3,5,8] -->   [3,8]   -->  [8]  --> []
+             chocolates =  3*1*5      +  3*5*8    +  1*3*8      + 1*8*1   = 167
+             
+             

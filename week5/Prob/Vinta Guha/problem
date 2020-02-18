@@ -1,0 +1,71 @@
+ In Vinaynagara kingdom, Devaraya has ordered the education minister to come up with a wonderful
+amusement park for kids to play. The education minister responded promptly and constructed a
+beautiful park with lots of funny games.
+
+One of the games, ‘Vinta Guha’ (Novel Cave). The cave had compartments that form a NxN grid. Each
+compartment was either empty (0), mango (1) or closed (-1). The game was to enter into the cave and
+win as many mangoes as possible. There were some interesting rules to get those mangoes from those
+compartments of the grid.
+
+The rules are as follows:
+
+1. One can pass through an empty compartment.
+2. The compartment with a mango becomes empty once the mango is picked up.
+3. Compartments either empty or with mangoes are considered valid to pass through.
+4. First compartment (0, 0) and Last compartment (N-1, N-1) are always either empty (0) or have
+mangoes (1). They are never closed (-1)
+5. Always start from first compartment (0, 0), move right or down and reach last compartment
+(N-1, N-1). In way, pick up mangoes (if found) and make that compartment empty.
+6. On reaching last compartment (N-1, N-1), resume the journey back to compartment (0, 0) by
+moving left or upper valid compartments.
+7. Repeat (4) and (5) till is it impossible to pass through compartments due the rules of movement
+as defined in (4) and (5).
+
+Given the grid, find out the maximum number of mangoes that a kid can win.
+Print 0 if there is no path from start point to end point.
+
+Sample input :
+3
+0 1 -1
+1 0 -1
+1 1 1
+
+Sample output :
+5
+
+Explanation :
+
+● The player started at (0, 0) and went down, down, right, right to
+reach (2, 2).
+● 4 mangoes were picked up during this single trip, and the matrix
+becomes [[0 1 -1], [0 0 -1], [0 0 0]].
+● Then, the player went left, up, up, left to return home, picking up
+one more mango.
+● The total number of mangoes picked up is 5, and this is the
+maximum possible.
+
+Sample input :
+3
+1 -1 1
+1 -1 0
+0 1 1
+
+Sample output :
+4
+
+
+Explanation :
+
+● The player started at (0, 0) and went down, down, right, right to
+reach (2, 2).
+
+● 4 mangoes were picked up during this single trip, and the matrix
+becomes [[0 -1 1], [0 -1 0], [0 0 0]].
+
+● There is a chance of blocking if he tried to pick a mango placed on (0,2) position while returning home(0,0) he can't move down and left there is a closed compartment.
+
+● So, the player went left,left, up, up to return home with out picking any mango.
+
+● The total number of mangoes picked up is 4, and this is the
+maximum possible.
+

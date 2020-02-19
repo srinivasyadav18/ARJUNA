@@ -13,7 +13,15 @@ std::string lcp(std::string &a, std::string &b);
 std::vector<std::string> split(const std::string &str, const std::string &delim);
 std::string lrs(std::string s);
 std::vector<int> strings_to_ints(std::string str);
+template <typename Container>
+void print(Container &c,std::string &sep){
+    for (auto i : c) std::cout<<i<<sep;
+}
 
+template <typename Container>
+void print(Container &c){
+    for (auto i : c) std::cout<<i<<" ";
+}
 class Graph
 {
 private:

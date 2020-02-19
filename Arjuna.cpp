@@ -1,11 +1,7 @@
-#include <vector>
-#include <iostream>
-#include <algorithm>
-#include <string>
-#include <sstream>
+#include"Arjuna.h"
 //Graph class
 //Again
-void print(std::vector<int> &v)
+void printv(std::vector<int> &v)
 {
     for (int i = 0; i < v.size(); i++)
     {
@@ -84,27 +80,6 @@ std::vector<int> strings_to_ints(std::string str)
     }
     return numbers;
 }
-class Graph
-{
-private:
-    int V;
-    std::vector<int> *G;
-    void dfs_helper(int pos, std::vector<bool> &visited, std::vector<int> &dfs_result);
-
-    bool sp_helper(int pos, int dest, std::vector<bool> &visited, std::vector<int> &dist, std::vector<int> &parent);
-
-    void all_path_helper(int from, int to, std::vector<bool> &visited, std::vector<int> path, std::vector<std::vector<int>> &paths);
-
-public:
-    Graph(int v);
-    void addEdge(int a, int b);
-    void display();
-    std::vector<int> bfs(int pos);
-    std::vector<int> dfs(int pos);
-    std::vector<std::vector<int>> level_order_traversal(int pos);
-    std::vector<int> shortest_path(int from, int to);
-    std::vector<std::vector<int>> all_paths(int from, int to);
-};
 
 Graph::Graph(int v)
 {
@@ -174,9 +149,9 @@ std::vector<int> Graph::dfs(int pos)
     dfs_helper(pos, visited, dfs_result);
     return dfs_result;
 }
-std::vector<std::vector<int>> Graph::level_order_traversal(int pos)
+std::vector<std::vector<int> > Graph::level_order_traversal(int pos)
 {
-    std::vector<std::vector<int>> paths;
+    std::vector<std::vector<int> > paths;
     int t_c = 0;
     int limit = 1;
     std::vector<int> q;
@@ -253,7 +228,7 @@ std::vector<int> Graph::shortest_path(int from, int to)
     std::reverse(path.begin(), path.end());
     return path;
 }
-void Graph::all_path_helper(int from, int to, std::vector<bool> &visited, std::vector<int> path, std::vector<std::vector<int>> &paths)
+void Graph::all_path_helper(int from, int to, std::vector<bool> &visited, std::vector<int> path, std::vector<std::vector<int> > &paths)
 {
     visited[from] = true;
     path.push_back(from);
@@ -274,15 +249,12 @@ void Graph::all_path_helper(int from, int to, std::vector<bool> &visited, std::v
     path.pop_back();
     visited[from] = false;
 }
-std::vector<std::vector<int>> Graph::all_paths(int from, int to)
+std::vector<std::vector<int> > Graph::all_paths(int from, int to)
 {
     std::vector<bool> visited(V, false);
     std::vector<int> path;
-    std::vector<std::vector<int>> paths;
+    std::vector<std::vector<int> > paths;
     all_path_helper(from, to, visited, path, paths);
     return paths;
 }
 
-int main()
-{
-}

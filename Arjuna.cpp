@@ -9,7 +9,30 @@ void printv(std::vector<int> &v)
     }
     std::cout << std::endl;
 }
-
+int lcs(std::string &s1,std::string &s2){
+	std::vector<std::vector<int> > dp(s2.size()+1,std::vector<int>(s1.size()+1,0));;;
+	for(int i=1;i<s2.length()+1;i++)
+	{
+		for(int j=1;j<s1.length()+1;j++)
+		{
+			if (s1[i-1]==s2[j-1]) dp[i][j]=dp[i-1][j-1]+1;
+			else dp[i][j]=std::max(dp[i][j-1],dp[i-1][j]);
+		}
+	};
+	return dp.back().back();
+}
+int lcs(std::string &&s1,std::string &&s2){
+	std::vector<std::vector<int> > dp(s2.size()+1,std::vector<int>(s1.size()+1,0));
+	for(int i=1;i<s2.length()+1;i++)
+	{
+		for(int j=1;j<s1.length()+1;j++)
+		{
+			if (s1[i-1]==s2[j-1]) dp[i][j]=dp[i-1][j-1]+1;
+			else dp[i][j]=std::max(dp[i][j-1],dp[i-1][j]);
+		}
+	};
+	return dp.back().back();
+}
 std::string lcp(std::string &a, std::string &b)
 {
     std::string res = "";
@@ -80,6 +103,27 @@ std::vector<int> strings_to_ints(std::string str)
     }
     return numbers;
 }
+
+std::string random_string_gen(){
+	srand(time(0));
+	int size=rand()%15;
+	std::string s="";
+	for (int i=0;i<size;i++)
+	{	char c=rand()%25+97;
+		s=s+c;
+	}
+	std::cout<<s<<std::endl;
+	return s;
+}
+std::string random_string_gen(int size){
+	srand(time(0));
+	std::string s="";
+	for (int i=0;i<size;i++)
+	{	char c=rand()%25+97;
+		s=s+c;
+	}
+}
+
 
 Graph::Graph(int v)
 {

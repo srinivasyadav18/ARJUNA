@@ -6,13 +6,19 @@
 #include <algorithm>
 #include <string>
 #include <sstream>
+#include <ctime>
+#include <cstdlib>
 
 
-void printv(std::vector<int> &v);//
+void printv(std::vector<int> &v);
+int lcs(std::string &s1,std::string &s2);
+int lcs(std::string &&s1,std::string &&s2);
 std::string lcp(std::string &a, std::string &b);
 std::vector<std::string> split(const std::string &str, const std::string &delim);
 std::string lrs(std::string s);
 std::vector<int> strings_to_ints(std::string str);
+std::string random_string_gen();
+std::string random_string_gen(int);
 template <typename Container>
 void print(Container &c,std::string &sep){
     for (auto i : c) std::cout<<i<<sep;

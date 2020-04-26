@@ -9,7 +9,7 @@ void printv(std::vector<int> &v)
     }
     std::cout << std::endl;
 }
-int lcs(std::string &s1,std::string &s2){
+int lcs(const std::string &s1,const std::string &s2){
 	std::vector<std::vector<int> > dp(s2.size()+1,std::vector<int>(s1.size()+1,0));;;
 	for(int i=1;i<s2.length()+1;i++)
 	{
@@ -21,19 +21,8 @@ int lcs(std::string &s1,std::string &s2){
 	};
 	return dp.back().back();
 }
-int lcs(std::string &&s1,std::string &&s2){
-	std::vector<std::vector<int> > dp(s2.size()+1,std::vector<int>(s1.size()+1,0));
-	for(int i=1;i<s2.length()+1;i++)
-	{
-		for(int j=1;j<s1.length()+1;j++)
-		{
-			if (s1[i-1]==s2[j-1]) dp[i][j]=dp[i-1][j-1]+1;
-			else dp[i][j]=std::max(dp[i][j-1],dp[i-1][j]);
-		}
-	};
-	return dp.back().back();
-}
-std::string lcp(std::string &a, std::string &b)
+
+std::string lcp(const std::string &a,const std::string &b)
 {
     std::string res = "";
     for (int i = 0; i < std::min(a.length(), b.length()); i++)
